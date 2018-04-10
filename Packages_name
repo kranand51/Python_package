@@ -1,0 +1,27 @@
+beautifulsoup
+pandas
+numpy
+dask
+blaze
+odo
+matplotlib
+sklearn
+scpy
+pyYaml		
+boke :- Bokeh is an interactive visualization library for Python that enables beautiful 
+  and meaningful visual presentation of data in modern web browsers. With Bokeh, 
+  you can quickly and easily create interactive plots, dashboards, and data applications.
+  --dependencies
+        NumPy
+        Jinja2
+        Six
+        Requests
+        Tornado >= 4.0
+        PyYaml
+        DateUtil	
+turi
+googleProtobuff
+google-cloud
+gooogle
+django
+django-cors-headers
