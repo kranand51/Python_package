@@ -1,0 +1,81 @@
+Statsitics:
+pandas_csv_upoad.py
+Timing: 01:59:36.97 (1 Hour, 59 Mins, 36.97 Sec)
+
+odo_csv_upload.py
+Timing: 00:30:12.96 (30 Mins, 12.96 Sec)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Odo Code
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#Data Import Using odo
+from odo import *
+import sqlalchemy as sa
+start = time.time()
+dshape = """
+ var * {
+   transaction:?string,
+  price: int64,
+  transfer_date: ?string,
+  postcode: ?string,
+  property_type: ?string,
+  newly_built: ?string,
+  duration: ?string,
+  paon: ?string,
+  saon: ?string,
+  street: ?string,
+  locality: ?string,
+  city: ?string,
+  district: ?string,
+  county: ?string,
+  ppd_category_type: ?string,
+  record_status: ?string
+ }
+"""
+metadata = sa.MetaData('postgresql://user:password@localhost:5432/postgres', schema='gbppdb')
+tbl = sa.Table(
+     'gbppdb1',
+     metadata,
+     sa.Column('a', sa.Integer, primary_key=True),)
+# Good practice - make sure your csv file has relevant headers. I faced issues while parsing csv file without headers
+odo('pp-complete.csv',tbl ,has_header=True,dshape=dshape,doublequote=True,primary_key=['transaction'])
+end = time.time()
+hours, rem = divmod(end-start, 3600)
+minutes, seconds = divmod(rem, 60)
+print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
+view rawodo_csv_upload.py
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pandas Code
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#Traditional pandas data load
+import sqlalchemy as sa
+import pandas as pd
+import time
+cols = """transaction
+price
+transfer_date
+postcode
+property_type
+newly_built
+duration
+paon
+saon
+street
+locality
+city
+district
+county
+ppd_category_type
+record_status""".split("\n")
+print(cols)
+start = time.time()
+con = sa.create_engine('postgresql://user:password@localhost:5432/postgres')
+chunks = pd.read_csv('pp-complete.txt',names=cols, chunksize=1000000)
+for chunk in chunks:
+    chunk.to_sql(name='pptab', if_exists='append',index=False,index_label='transaction',schema='gbppdb', con=con)
+end = time.time()
+hours, rem = divmod(end-start, 3600)
+minutes, seconds = divmod(rem, 60)
+print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
