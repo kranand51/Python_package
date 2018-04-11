@@ -2,6 +2,13 @@ beautifulsoup
 pandas
 numpy
 dask
+  Dask is a flexible parallel computing library for analytic computing.
+
+Dask is composed of two components:
+      1. Dynamic task scheduling optimized for computation. This is similar to Airflow, Luigi, Celery, or 
+          Make, but optimized for interactive computational workloads.
+      2. “Big Data” collections like parallel arrays, dataframes, and lists that extend common interfaces like NumPy, Pandas, or 
+          Python iterators to larger-than-memory or distributed environments. These parallel collections run on top of the dynamic task schedulers.
 blaze
 odo
 matplotlib
