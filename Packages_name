@@ -32,3 +32,34 @@ google-cloud
 gooogle
 django
 django-cors-headers
+
+xlrd for reading in Excel files easily.
+
+NumPy/Scipy 
+  You probably know about these already. But let me point out the Cookbook where you can read about many statistical 
+  facilities already available and the Example List which is a great reference for functions (including data manipulation 
+  and other operations). Another handy reference is John Cook's Distributions in Scipy.
+
+pandas 
+    This is a really nice library for working with statistical data -- tabular data, time series, panel data. 
+    Includes many builtin functions for data summaries, grouping/aggregation, pivoting. Also has a statistics/econometrics library.
+
+larry 
+Labeled array that plays nice with NumPy. 
+Provides statistical functions not present in NumPy and good for data manipulation.
+
+python-statlib A fairly recent effort which combined a number of scattered statistics libraries. Useful for basic and descriptive statistics if you're not using NumPy or pandas.
+
+statsmodels 
+  As its name implies, statsmodels is a Python library built specifically for statistics. 
+  Statsmodels is built on top of NumPy, SciPy, and matplotlib, but it contains more advanced functions for statistical testing 
+  and modeling that you won’t find in numerical libraries like NumPy or SciPy.
+  Statistical modeling: Linear models, GLMs, among others.
+
+scikits 
+Statistical and scientific computing packages -- notably smoothing, optimization and machine learning.
+
+PyMC 
+For your Bayesian/MCMC/hierarchical modeling needs. Highly recommended.
+
+PyMix Mixture models.
