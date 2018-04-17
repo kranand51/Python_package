@@ -1,6 +1,8 @@
 beautifulsoup
 pandas
 numpy
+seaborn -36 plot  Seaborn is a Python visualization library based on matplotlib. 
+  It provides a high-level interface for drawing attractive statistical graphics.
 dask
   Dask is a flexible parallel computing library for analytic computing.
 
@@ -13,7 +15,12 @@ blaze
 odo
 matplotlib
 sklearn
-scpy
+scipy :- SciPy contains modules for optimization, linear algebra, integration, 
+    interpolation, special functions, FFT, signal and image processing, 
+    ODE solvers and other tasks common in science and engineering.
+    SciPy builds on the NumPy array object and is part of the NumPy 
+    stack which includes tools like Matplotlib, pandas and SymPy, and 
+    an expanding set of scientific computing libraries.
 pyYaml		
 boke :- Bokeh is an interactive visualization library for Python that enables beautiful 
   and meaningful visual presentation of data in modern web browsers. With Bokeh, 
